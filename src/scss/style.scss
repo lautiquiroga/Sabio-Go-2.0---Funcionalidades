@@ -1,0 +1,83 @@
+/*
+*	Bootratp Theme Boilerplate  
+* Base on Normalize.css & Bootstrap 
+*
+*/
+
+
+
+
+/* ==========================================================================
+   Bootstrap Core, Variables and Utilities
+   ========================================================================== */
+
+/* Bootstrap Functions */
+@import "bootstrap-functions";
+
+/* Custom Theme Variables and Bootstrap Defaults Override */
+@import "variables";
+
+
+
+/* Bootstrap Components */
+@import "bootstrap-components";
+
+html,
+body {
+   color: black;
+   overflow-x: hidden;
+   max-width: 100vw;
+}
+
+.container {
+   padding: 0 12px;
+
+   @include media-breakpoint-up(md) {
+      padding: 0;
+   }
+
+   @include media-breakpoint-up(xl) {
+      padding: 0 60px;
+   }
+}
+
+@mixin text {
+   font-size: 22px;
+   font-weight: 400;
+   font-family: 'Montserrat';
+}
+
+@mixin primary {
+   font-size: 30px;
+   line-height: 1.5;
+   font-weight: 500;
+   font-family: "DM Serif Display", serif;
+
+   @include media-breakpoint-up(md) {
+      line-height: 1.2;
+      font-size: 40px;
+   }
+}
+
+@mixin serif {
+   line-height: .9;
+   font-family: "DM Serif Display", serif;
+}
+
+/* ==========================================================================
+   Main Components and Context
+   ========================================================================== */
+
+@import "./context/header";
+@import "./context/footer";
+@import "./context/menu-popup";
+
+
+
+/* ==========================================================================
+   Pages and Sections
+   ========================================================================== */
+
+@import "./views/index";
+@import "./views/single-post";
+@import "./views/archive";

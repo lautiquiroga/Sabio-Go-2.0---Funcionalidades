@@ -1,0 +1,338 @@
+.offcanvas#menu-popup {
+    width: 100%;
+    display: flex;
+    background-color: black;
+    background-clip: border-box;
+    min-height: 100%;
+
+    .container {
+        padding: 12px;
+        position: relative;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            max-width: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            padding: 20px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            max-width: 1500px;
+            padding: 40px 60px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+    }
+
+    .offcanvas-header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .btn-close {
+            background: none;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            width: fit-content;
+            padding: 0;
+            height: fit-content;
+            opacity: 1;
+
+            &:focus {
+                outline: none;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .offcanvas-main {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 1;
+        width: 100%;
+
+        nav {
+            width: 100%;
+
+            ul {
+                gap: 30px;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: fit-content;
+
+                    &:hover {
+
+                        a,
+                        span {
+                            color: white
+                        }
+                    }
+
+                    &.li-talk {
+                        display: none !important;
+                    }
+
+                    a,
+                    button {
+                        font-family: 'Montserrat';
+                        font-weight: 600;
+                        color: rgba(255, 255, 255, 0.468);
+                        line-height: 1.2;
+                        transition: all .3s;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 40px;
+                    }
+
+                    a,
+                    button {
+                        background-color: transparent;
+                        font-size: 50px;
+                        text-transform: uppercase;
+                    }
+
+                    span {
+                        font-size: 20px;
+                    }
+
+                    &.li-accordion {
+                        display: flex !important;
+                        width: 100%;
+
+                        .accordion {
+                            width: 100%;
+
+                            .accordion-item {
+                                border: none;
+                                background-color: transparent;
+
+                                &:last-of-type .accordion-button.collapsed {
+                                    border-bottom-right-radius: 0;
+                                    border-bottom-left-radius: 0;
+                                }
+
+                                .accordion-header {
+                                    .accordion-button {
+                                        padding: 0;
+                                        width: fit-content;
+                                        display: flex;
+                                        gap: 40px;
+                                        background-color: transparent;
+
+                                        &[aria-expanded="true"] {
+                                            background-color: transparent;
+                                            box-shadow: none;
+                                            border-bottom: none;
+                                            color: white;
+
+                                            span {
+                                                color: white;
+                                            }
+                                        }
+
+                                        &:focus {
+                                            box-shadow: none;
+                                        }
+
+                                        &::after {
+                                            display: none;
+                                        }
+
+
+
+                                        h2,
+                                        span {
+                                            font-family: 'Montserrat';
+                                            font-weight: 600;
+                                            color: rgba(255, 255, 255, 0.468);
+                                            line-height: 1.2;
+                                            transition: all .3s;
+                                        }
+
+                                        h2 {
+                                            background-color: transparent;
+                                            font-size: 50px;
+                                            text-transform: uppercase;
+                                        }
+
+                                        span {
+                                            font-size: 20px;
+                                        }
+                                    }
+                                }
+
+                                .accordion-body {
+                                    padding: 25px 0 0 0;
+                                    @include text;
+                                    color: white;
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 40px;
+                                    justify-content: space-between;
+
+                                    .accordion__card {
+                                        @include text;
+                                        font-size: 25px;
+
+                                        a {
+                                            font-size: 18px;
+                                            font-weight: 400;
+                                            text-transform: none;
+                                            width: fit-content;
+                                            color: rgba(255, 255, 255, 0.468);
+
+                                            &:hover {
+                                                color: white
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+}
+
+
+// Media Queries: Desde PC chico
+@include media-breakpoint-up(lg) {
+    .offcanvas#menu-popup {
+        .container {
+            .offcanvas-main {
+                nav {
+
+                    ul {
+
+                        li {
+
+
+                            &.li-accordion {
+
+                                .accordion {
+
+                                    .accordion-item {
+
+                                        .accordion-header {
+                                            .accordion-button {
+
+                                                &:hover {
+                                                    color: white;
+
+                                                    span {
+                                                        color: white;
+                                                    }
+                                                }
+
+
+                                            }
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Media Queries: Desde PC grande
+@include media-breakpoint-up(xxl) {
+    .offcanvas#menu-popup {
+        .container {
+            .offcanvas-main {
+                nav {
+
+                    ul {
+                        gap: 0;
+
+                        li {
+
+                            a,
+                            button {
+                                font-size: 120px;
+                                gap: 80px;
+                            }
+
+                            span {
+                                font-size: 30px;
+                            }
+
+                            &.li-accordion {
+
+                                .accordion {
+
+                                    .accordion-item {
+
+                                        .accordion-header {
+                                            .accordion-button {
+                                                gap: 80px;
+                                                font-size: 120px;
+
+                                                span {
+                                                    font-size: 30px;
+                                                }
+
+                                            }
+                                        }
+
+                                        .accordion-body {
+                                            padding: 60px 0 0 0;
+                                            @include text;
+                                            color: white;
+                                            flex-direction: row;
+                                            align-items: start;
+                                            gap: 60px;
+
+                                            .accordion__card {
+                                                width: 25%;
+                                                border-top: 1px solid rgba(255, 255, 255, 0.468);
+                                                padding-top: 30px;
+                                            }
+                                        }
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

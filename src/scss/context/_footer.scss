@@ -1,0 +1,181 @@
+#footer {
+    background-color: black;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        position: relative;
+        padding-top: 80px;
+        padding-bottom: 40px;
+
+        .footer__row-1 {
+            .footer__row-1__col-1 {
+                gap: 30px;
+
+                h2 {
+                    @include text;
+                    font-size: 40px;
+                }
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 100px;
+                    gap: 20px;
+                    @include serif;
+                    font-size: 18px;
+                    transition: all .3s;
+                    height: fit-content;
+                    background-color: $primary;
+
+                    img {
+                        width: 25px;
+                        filter: invert(1);
+                    }
+
+                    &:hover {
+                        color: black;
+                        background-color: white;
+
+                        img {
+                            filter: invert(0);
+                        }
+                    }
+                }
+            }
+
+            .footer__row-1__col-2 {
+                nav {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        li {
+                            text-align: center;
+
+                            span {
+                                display: none;
+                            }
+
+                            a,
+                            button {
+                                background-color: transparent;
+                                color: white;
+                                @include text;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .footer__row-2 {
+            img {
+                width: 150px;
+            }
+        }
+
+        .footer__row-3 {
+            display: flex;
+            align-items: center;
+
+            .footer__row-3__col-1 {
+                a {
+                    color: white;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .footer__row-3__col-2 {
+                ul {
+                    display: flex;
+                    align-items: center;
+
+                    li {
+                        a {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            color: white;
+
+                            img {
+                                width: 25px;
+                                height: 25px;
+                                object-fit: contain;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+
+        }
+    }
+
+
+}
+
+// Media Queries. Desde Tablet
+@include media-breakpoint-up(md) {
+    #footer {
+        .container {
+            .footer__row-1 {
+
+                .footer__row-1__col-2 {
+                    nav {
+                        ul {
+                            li {
+                                text-align: end;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// Media Queries. Desde Pc Mediana
+@include media-breakpoint-up(lg) {
+    #footer {
+        .container {
+            padding-top: 120px;
+
+            .footer__row-1 {
+                .footer__row-1__col-1 {
+                    gap: 30px;
+
+                    h2 {
+                        font-size: 80px;
+                        line-height: 1;
+                    }
+                }
+
+                .footer__row-1__col-2 {
+                    nav {
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
