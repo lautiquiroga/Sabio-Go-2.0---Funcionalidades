@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from './loopItemProduct';
 import SortOptions from './sortOptions';
+import FilterChips from './filters__chips';
+
 
 const products = [
     { id: 1, image: 'url_de_la_imagen_1', price: 230256, name: 'Notebook Lenovo Ideapad 1i Intel I3 1215u 4gb Ram', des: true, categoria: 'Notebooks', marca: 'Lenovo', plan: "ahora12" },
@@ -108,11 +110,14 @@ const ProductList = () => {
     }, [filteredProducts, loadMoreProducts, loading]);
 
     return (
-        <div className="product-list">
+        <div className="product-list d-flex flex-column gap-3 p-2 align-items-center">
             <SortOptions />
-            {sortedProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-            ))}
+            <FilterChips />
+            <div className='d-flex flex-wrap gap-3 justify-content-center'>
+                {sortedProducts.map(product => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
             <div className="end-of-products" style={{ height: '20px' }}></div>
             {loading && <div className="loading">Loading...</div>}
         </div>

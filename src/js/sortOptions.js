@@ -6,31 +6,19 @@ const SortOptions = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const sortOption = searchParams.get('sort') || 'createdAt'; // Valor por defecto
 
-    const handleSortChange = (option) => {
+    const handleSortChange = (event) => {
+        const option = event.target.value;
         searchParams.set('sort', option);
         setSearchParams(searchParams);
     };
 
     return (
         <div className="sort-options">
-            <button
-                className={sortOption === 'createdAt' ? 'active' : ''}
-                onClick={() => handleSortChange('createdAt')}
-            >
-                Ordenar por fecha de creación
-            </button>
-            <button
-                className={sortOption === 'priceAsc' ? 'active' : ''}
-                onClick={() => handleSortChange('priceAsc')}
-            >
-                Precio: Bajo a alto
-            </button>
-            <button
-                className={sortOption === 'priceDesc' ? 'active' : ''}
-                onClick={() => handleSortChange('priceDesc')}
-            >
-                Precio: Alto a bajo
-            </button>
+            <select value={sortOption} onChange={handleSortChange}>
+                <option value="createdAt">Ordenar por fecha de creación</option>
+                <option value="priceAsc">Precio: Bajo a alto</option>
+                <option value="priceDesc">Precio: Alto a bajo</option>
+            </select>
         </div>
     );
 };
