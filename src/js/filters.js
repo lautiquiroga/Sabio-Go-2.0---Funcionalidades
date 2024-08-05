@@ -30,7 +30,7 @@ const Filters = () => {
     return (
         <>
             <p className="m-0">Filters</p>
-            <ul className="p-0">
+            {/* <ul className="p-0">
                 <li>
                     <label>
                         <input
@@ -51,18 +51,18 @@ const Filters = () => {
                         Ahora 12
                     </label>
                 </li>
-            </ul>
+            </ul> */}
 
             <div className="d-flex flex-column">
                 <p className="m-0">Categorías</p>
                 <ul className="p-0">
-                    {['Auriculares', 'Hogar', 'Cables', 'Notebooks', 'Celulares', 'Monitores'].map(category => (
+                    {['CAT A', 'CAT B'].map(category => (
                         <li key={category}>
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={isChecked('categoria', category)}
-                                    onChange={() => handleFilterChange('categoria', category)}
+                                    checked={isChecked('category', category)}
+                                    onChange={() => handleFilterChange('category', category)}
                                 />
                                 {category}
                             </label>
@@ -74,7 +74,7 @@ const Filters = () => {
             <div className="d-flex flex-column">
                 <p className="m-0">Marcas</p>
                 <ul className="p-0">
-                    {['Netmak', 'HP', 'Motorola', 'Acer', 'Sony', 'Lenovo'].map(brand => (
+                    {['ATT1 A', 'ATT1 B'].map(brand => (
                         <li key={brand}>
                             <label>
                                 <input

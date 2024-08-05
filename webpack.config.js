@@ -4,10 +4,6 @@ module.exports = {
     entry: {
         main: './src/js/main.js',
         archive: './src/js/archive.js',
-        loop: './src/js/loop.js',
-        loopItemProduct: './src/js/loopItemProduct.js',
-        filters: './src/js/filters.js',
-        sortOptions: './src/js/sortOptions.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist/assets/js'),
